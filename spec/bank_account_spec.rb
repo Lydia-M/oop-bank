@@ -11,10 +11,29 @@ describe BankAccount do
 	 expect(account.balance).to eq(500)
 	end
 
-	it "can report its balance"
-	it "can make deposits"
-	it "can make withdrawals"
-	it "can transfer funds to another bank account"
+	it "can make deposits" do
+        account = BankAccount.new(500, "Sarah")
+        account.deposit(250)
+        expect(account.balance).to eq(750)
+    end
+    
+	it "can make withdrawals" do
+        account = BankAccount.new(500, "Sarah")
+        account.withdraw(100)
+        expect(account.balance).to eq(400)
+    end  
+        
+	it "can transfer funds to another bank account" do
+        account_one = BankAccount.new(500, "Sarah")
+        account_two = BankAccount.new(500, "Beyonce")
+        
+        account_one.transfer(200, account_two)
+        
+        expect(account_one.balance).to eq(300)
+        expect(account_two.balance).to eq(700)
+    end
+    
+    
 	it "has a minimum opening balance"
 	it "allows the user to change the minimum balance"
 end
