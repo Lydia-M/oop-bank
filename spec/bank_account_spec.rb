@@ -1,7 +1,16 @@
 require './bank_account'
 
 describe BankAccount do
-	it "is created with an opening balance and the name of the client"
+	it "is created with an opening balance and the name of the client" do
+	 account = BankAccount.new(500, "Sarah")
+	 expect(account).to be_a(BankAccount)
+	end
+	
+	it "can report its balance" do
+	 account = BankAccount.new(500, "Sarah")
+	 expect(account.balance).to eq(500)
+	end
+
 	it "can report its balance"
 	it "can make deposits"
 	it "can make withdrawals"
